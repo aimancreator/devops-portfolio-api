@@ -1,0 +1,139 @@
+{
+  "owner": "aimancreator",
+  "name": "Aiman",
+  "reviewedAt": "2026-09-06",
+  "projects": [
+    {
+      "id": "reconviagen-studio",
+      "title": "ReconViaGen Studio",
+      "category": "GPU infrastructure",
+      "description": "Multi-view images to 3D models. A local studio connected to a protected H100 inference API.",
+      "tags": [
+        "Python",
+        "Modal",
+        "H100",
+        "CUDA"
+      ],
+      "architecture": [
+        "Local studio",
+        "Protected API",
+        "H100 inference",
+        "Persistent volume"
+      ],
+      "details": "Pinned application source and CUDA dependencies live in an immutable Modal Image. Model checkpoints live in a persistent Volume, surviving redeploys and scale-to-zero. The studio forwards 1\u20138 ordered views and returns a GLB for preview and download.",
+      "operations": "One-container maximum, no function retries, and a two-second idle scale-down window. GPU failures stop the batch runner for manual investigation.",
+      "url": "https://github.com/aimancreator/reconviagen-studio"
+    },
+    {
+      "id": "cosmos-nvidia",
+      "title": "Cosmos Motion Studio",
+      "category": "GPU infrastructure",
+      "description": "Asynchronous image-to-video generation with a Flask interface and cloud GPU workers.",
+      "tags": [
+        "Python",
+        "Flask",
+        "Modal",
+        "NVIDIA"
+      ],
+      "architecture": [
+        "Flask UI",
+        "Async job",
+        "GPU worker",
+        "MP4 result"
+      ],
+      "details": "The local Flask application submits images and motion prompts to Modal, polls job progress, and returns finished video for preview and download. Model weights are stored in a persistent Modal Volume.",
+      "operations": "Scale-to-zero GPU workers and one generation at a time. The interface supports cancellation and records submission, processing, download, and errors.",
+      "url": "https://github.com/aimancreator/cosmos-nvidia"
+    },
+    {
+      "id": "hailuo-minimax-h3",
+      "title": "MiniMax H3 Serving",
+      "category": "GPU infrastructure",
+      "description": "Video generation served through SGLang, with persistent artifacts and a local log watchdog.",
+      "tags": [
+        "Python",
+        "SGLang",
+        "Modal",
+        "H100"
+      ],
+      "architecture": [
+        "Local WebUI",
+        "SGLang endpoint",
+        "GPU generation",
+        "Artifact storage"
+      ],
+      "details": "Deploys MiniMax H3 Base through SGLang on Modal. Hugging Face weights persist in a Modal Volume; generated MP4 files and JSON reports are stored together for each generation.",
+      "operations": "A local watchdog streams timestamped Modal logs and mirrors the log into persistent storage. Deployment configuration selects the model variant and GPU count.",
+      "url": "https://github.com/aimancreator/hailuo-minimax-h3"
+    },
+    {
+      "id": "create-email-purelymail",
+      "title": "Email Provisioning",
+      "category": "Automation",
+      "description": "Python automation for creating email accounts through the Purelymail REST API.",
+      "tags": [
+        "Python",
+        "REST",
+        "Purelymail"
+      ],
+      "architecture": [
+        "Python script",
+        "REST request",
+        "Purelymail"
+      ],
+      "details": "A focused integration project for creating email through Purelymail\u2019s REST interface.",
+      "operations": "Repository documentation is minimal. Explore the source for the implementation; production monitoring and deployment are not documented.",
+      "url": "https://github.com/aimancreator/create-email-purelymail"
+    },
+    {
+      "id": "send-email-using-imap",
+      "title": "SMTP Email Automation",
+      "category": "Automation",
+      "description": "A Python project for sending email over SMTP.",
+      "tags": [
+        "Python",
+        "SMTP"
+      ],
+      "architecture": [
+        "Python script",
+        "SMTP server",
+        "Email delivery"
+      ],
+      "details": "Despite the repository name, its README describes sending email using SMTP.",
+      "operations": "A small automation project. The public README does not document production deployment or reliability guarantees.",
+      "url": "https://github.com/aimancreator/send-email-using-imap"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "category": "Development",
+      "description": "Automation scripts, API integrations, and local inference interfaces."
+    },
+    {
+      "name": "Modal",
+      "category": "Cloud infrastructure",
+      "description": "GPU workers, persistent model volumes, and scale-to-zero workloads."
+    },
+    {
+      "name": "Flask",
+      "category": "Development",
+      "description": "Local web interfaces and asynchronous generation workflows."
+    },
+    {
+      "name": "REST APIs",
+      "category": "Integration",
+      "description": "Connecting interfaces, inference endpoints, and email services."
+    },
+    {
+      "name": "SGLang",
+      "category": "Model serving",
+      "description": "Serving MiniMax H3 generation workloads on cloud GPUs."
+    },
+    {
+      "name": "CUDA",
+      "category": "GPU infrastructure",
+      "description": "Reproducible GPU runtime dependencies for inference projects."
+    }
+  ]
+}
